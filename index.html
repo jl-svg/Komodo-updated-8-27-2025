@@ -426,7 +426,7 @@
     @media (max-width: 860px) {
       .hero-grid { grid-template-columns: 1fr; min-height: 0; }
       .hero-copy { padding: 56px var(--gutter) 40px; }
-      .hero-media { min-height: 0; aspect-ratio: 4 / 4.6; max-height: 640px; }
+      .hero-media { width: 100%; height: min(115vw, 640px); min-height: 0; aspect-ratio: auto; }
       .hero-media::after {
         background:
           linear-gradient(180deg, var(--ink) 0%, rgba(22,32,28,.6) 10%, rgba(22,32,28,0) 26%),
@@ -452,11 +452,15 @@
     .lead-copy .btn { align-self: flex-start; }
     @media (max-width: 860px) {
       .lead-grid { grid-template-columns: 1fr; }
-      .lead-photo { min-height: 0; aspect-ratio: 4 / 4.4; max-height: 620px; max-width: none; }
+      .lead-photo { width: 100%; height: min(110vw, 620px); min-height: 0; aspect-ratio: auto; max-width: none; }
       .lead-copy { padding: 48px var(--gutter) 72px; }
     }
 
+    @media (max-width: 860px) {
+      .hero-media img, .hero-media figcaption { animation: none; opacity: 1; transform: none; }
+    }
     @media print {
+      .hero-media img, .hero-media figcaption { animation: none !important; opacity: 1 !important; transform: none !important; }
       .site-header, .contact form { display: none; }
       .ledger, .contact, .site-footer { background: #fff; color: #000; }
     }
@@ -575,7 +579,7 @@
     <section class="section leadership" id="leadership" aria-labelledby="leadTitle">
       <div class="lead-grid">
         <div class="lead-photo">
-          <img src="images/jacob-levene-seated.jpg" alt="Jacob Levene seated at his desk" width="1199" height="1600" loading="lazy">
+          <img src="images/jacob-levene-seated.jpg" alt="Jacob Levene seated at his desk" width="1199" height="1600" loading="eager">
         </div>
         <div class="lead-copy reveal">
           <p class="kicker">Leadership</p>
